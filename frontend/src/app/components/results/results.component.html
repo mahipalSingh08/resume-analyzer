@@ -1,0 +1,92 @@
+<div class="results-container">
+  
+  <div class="card score-card text-center mb-8">
+    <h2 class="mb-4">ATS SCORE</h2>
+    
+    <div class="score-circle-container">
+      <svg class="score-circle" width="120" height="120" viewBox="0 0 120 120">
+        <circle class="score-circle-bg" cx="60" cy="60" r="54" fill="none" stroke-width="12" />
+        <circle class="score-circle-progress" cx="60" cy="60" r="54" fill="none" stroke-width="12" stroke-linecap="round"
+                stroke-dasharray="339.29"
+                [attr.stroke-dashoffset]="getScoreCircleOffset()"
+                [class]="getScoreColorClass()" />
+      </svg>
+      <div class="score-text">
+        <span class="score-value">{{ results.ats_score }}</span>
+        <span class="score-total">/ 100</span>
+      </div>
+    </div>
+    
+    <p class="mt-4 score-summary">{{ results.score_summary }}</p>
+  </div>
+
+  <h2 class="mb-4 text-center">Gap Analysis</h2>
+  
+  <div class="grid gap-grid mb-8">
+    <div class="card gap-card">
+      <h3 class="text-success mb-4">Strengths</h3>
+      <ul class="check-list">
+        <li *ngFor="let item of results.strengths">{{ item }}</li>
+        <li *ngIf="results.strengths.length === 0" class="text-muted">No specific strengths identified.</li>
+      </ul>
+    </div>
+    
+    <div class="card gap-card">
+      <h3 class="text-error mb-4">Missing Skills</h3>
+      <ul class="bullet-list">
+        <li *ngFor="let item of results.missing_skills">{{ item }}</li>
+        <li *ngIf="results.missing_skills.length === 0" class="text-muted">No missing skills identified.</li>
+      </ul>
+    </div>
+    
+    <div class="card gap-card">
+      <h3 class="text-warning mb-4">Missing Keywords</h3>
+      <ul class="bullet-list">
+        <li *ngFor="let item of results.missing_keywords">{{ item }}</li>
+        <li *ngIf="results.missing_keywords.length === 0" class="text-muted">No missing keywords identified.</li>
+      </ul>
+    </div>
+
+    <div class="card gap-card">
+      <h3 class="text-warning mb-4">Experience Gaps</h3>
+      <ul class="bullet-list">
+        <li *ngFor="let item of results.experience_gaps">{{ item }}</li>
+        <li *ngIf="results.experience_gaps.length === 0" class="text-muted">No experience gaps identified.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="mb-4 text-center">Rewrite Suggestions</h2>
+  
+  <div class="card suggestion-card mb-4" *ngFor="let suggestion of results.rewrite_suggestions">
+    <div class="suggestion-header">
+      <h4>Section: {{ suggestion.section }}</h4>
+    </div>
+    <div class="suggestion-body">
+      <div class="diff-container mb-4">
+        <div class="diff-block diff-current">
+          <div class="diff-label">Current:</div>
+          <p>{{ suggestion.current_text }}</p>
+        </div>
+        <div class="diff-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        </div>
+        <div class="diff-block diff-suggested">
+          <div class="diff-label">Suggested:</div>
+          <p>{{ suggestion.suggested_text }}</p>
+        </div>
+      </div>
+      <div class="reason-block">
+        <strong>Why:</strong> {{ suggestion.reason }}
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="results.rewrite_suggestions.length === 0" class="card text-center text-muted mb-4">
+    No specific rewrite suggestions identified.
+  </div>
+
+  <div class="text-center mt-8">
+    <button class="btn btn-primary" (click)="onAnalyzeAgain()">Analyze Another Resume</button>
+  </div>
+</div>

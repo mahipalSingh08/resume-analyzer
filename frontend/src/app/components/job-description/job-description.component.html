@@ -1,0 +1,13 @@
+<div class="card jd-card">
+  <h3 class="mb-4">Job Description</h3>
+  <textarea
+    class="jd-textarea"
+    rows="8"
+    placeholder="Paste the job description here..."
+    [ngModel]="jdText"
+    (ngModelChange)="onTextChange($event)"
+  ></textarea>
+  <div *ngIf="!jdText" class="text-muted mt-2" style="font-size: 0.875rem;">
+    * Job description is required to perform the analysis.
+  </div>
+</div>

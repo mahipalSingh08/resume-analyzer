@@ -1,0 +1,25 @@
+<div class="card loading-card text-center">
+  <div class="spinner-container mb-4">
+    <div class="spinner"></div>
+  </div>
+  
+  <h3 class="mb-4">Analyzing Your Resume...</h3>
+  
+  <ul class="loading-steps text-left">
+    <li *ngFor="let step of steps; let i = index" class="step-item" 
+        [class.completed]="i < currentStepIndex" 
+        [class.active]="i === currentStepIndex"
+        [class.pending]="i > currentStepIndex">
+      
+      <span class="step-icon">
+        <svg *ngIf="i < currentStepIndex" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span *ngIf="i === currentStepIndex" class="hourglass">⏳</span>
+        <span *ngIf="i > currentStepIndex" class="circle">○</span>
+      </span>
+      
+      <span class="step-text">{{ step }}</span>
+    </li>
+  </ul>
+  
+  <p class="text-muted mt-8" style="font-size: 0.875rem;">This may take a few seconds...</p>
+</div>

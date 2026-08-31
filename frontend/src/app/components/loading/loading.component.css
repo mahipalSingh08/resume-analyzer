@@ -1,0 +1,56 @@
+.spinner-container {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-steps {
+  list-style: none;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.step-item.completed {
+  color: var(--success-color);
+}
+
+.step-item.active {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.step-item.pending {
+  color: var(--text-muted);
+}
+
+.step-icon {
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.text-success {
+  color: var(--success-color);
+}

@@ -1,0 +1,214 @@
+.score-circle-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+}
+
+.score-circle {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.score-circle-bg {
+  stroke: var(--border-color);
+}
+
+.score-circle-progress {
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.score-high { stroke: var(--success-color); }
+.score-medium { stroke: var(--warning-color); }
+.score-low { stroke: var(--error-color); }
+
+.score-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  font-family: 'Outfit', sans-serif;
+}
+
+.score-total {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.score-summary {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-main);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .gap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gap-card {
+  padding: 1.75rem;
+  margin-bottom: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gap-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.text-success { color: var(--success-color); }
+.text-warning { color: var(--warning-color); }
+.text-error { color: var(--error-color); }
+
+.check-list, .bullet-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.check-list li, .bullet-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success-color);
+  font-weight: 800;
+}
+
+.bullet-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  top: 1px;
+}
+
+.suggestion-card {
+  background: rgba(255, 255, 255, 0.9);
+  transition: transform 0.2s ease;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.suggestion-header {
+  background: rgba(248, 250, 252, 0.8);
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.suggestion-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.suggestion-body {
+  padding: 1.75rem;
+}
+
+.diff-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .diff-container {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.diff-block {
+  flex: 1;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.diff-current {
+  background-color: var(--error-bg);
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.diff-suggested {
+  background-color: var(--success-bg);
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.diff-label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.diff-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: var(--primary-light);
+}
+
+@media (min-width: 768px) {
+  .diff-arrow svg {
+    transform: rotate(-90deg);
+  }
+}
+
+.reason-block {
+  background: linear-gradient(to right, #eff6ff, rgba(255,255,255,0));
+  border-left: 4px solid var(--primary-color);
+  padding: 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin-top: 1rem;
+}
+
