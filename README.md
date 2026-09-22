@@ -1,3 +1,6 @@
+<img width="941" height="1517" alt="main" src="https://github.com/user-attachments/assets/31785216-26af-43af-98c6-edbe0ea6a840" />
+
+
 # AI-Powered Resume Analyzer
 
 A simple, beginner-friendly full-stack application that analyzes a resume (PDF) against a job description using AI.
